@@ -3,7 +3,14 @@
     "target": "es5",
     "module": "commonjs",
     "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "app/*": ["./src/*"]
+    },
     "strict": true,
-    "esModuleInterop": true
-  },
+    "esModuleInterop": true,
+    "lib": [
+      "es5", "es6", "dom"
+    ]
+  }
 }
