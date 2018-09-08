@@ -2,13 +2,17 @@ import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
+import { CheckerPlugin, TsConfigPathsPlugin } from 'awesome-typescript-loader'
 
 const outDir = 'dist'
 
 const config: webpack.Configuration = {
     mode: "development",
     resolve: {
-        extensions: ['.ts', '.tsx', '.js']
+        extensions: ['.ts', '.tsx', '.js'],
+        plugins: [
+            new TsConfigPathsPlugin()
+        ]
     },
     entry: './src/index.ts',
     plugins: [
@@ -24,7 +28,7 @@ const config: webpack.Configuration = {
 
     module: {
         rules: [
-            { test: /\.tsx?$/, use: 'ts-loader' },
+            { test: /\.tsx?$/, use: 'awesome-typescript-loader' },
             { test: /\.scss$/, use: [
                 'style-loader',
                 'css-loader',
