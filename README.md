@@ -1,6 +1,10 @@
 # frontend-typescript-jest-webpack
 A minimal setup for frontend development in TypeScript and SASS, with Jest for tests, and builds with Webpack.
 
+# Prerequisites
+- Node/npm
+- `npm i -g windows-build-tools` if you're on windows.
+
 # Development
 `npm start` kicks off the webpack dev server, which will automatically rebuild and refresh the browser on changes.
 

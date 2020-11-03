@@ -1,10 +1,8 @@
 import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
-import { CheckerPlugin, TsConfigPathsPlugin } from 'awesome-typescript-loader'
-
-const outDir = 'dist'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import { TsConfigPathsPlugin } from 'awesome-typescript-loader'
 
 const config: webpack.Configuration = {
     mode: "development",
@@ -16,20 +14,20 @@ const config: webpack.Configuration = {
     },
     entry: './src/index.ts',
     plugins: [
-        new CleanWebpackPlugin([outDir]),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'frontend typescript jest template'
         })
     ],
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, outDir)
+        path: path.resolve(__dirname, 'dist')
     },
 
     module: {
         rules: [
             { test: /\.tsx?$/, use: 'awesome-typescript-loader' },
-            { test: /\.scss$/, use: [
+            { test: /\.s[ac]ss$/, use: [
                 'style-loader',
                 'css-loader',
                 'sass-loader'
